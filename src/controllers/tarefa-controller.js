@@ -1,5 +1,9 @@
-module.exports = (app) =>{
+module.exports = (app) => {
   app.get('/tarefa', (req, res) => {
-    res.send('<h1>Tarefas</h1>');
+    res.send('Rota ativada com GET e recurso tarefa: valores de tarefa devem ser retornados');
+  })
+
+  app.post('/tarefa', (req, res) => {
+    res.send('Rota POST de tarefa ativada: tarefa adicionada ao banco de dados');
   })
 }
