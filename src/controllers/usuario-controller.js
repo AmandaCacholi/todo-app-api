@@ -4,6 +4,7 @@ module.exports = (app) => {
   })
 
   app.post('/usuario', (req, res) => {
+    console.log(req.body.curso)
     res.send('Rota POST de usuario ativada: usuario adicionado ao banco de dados')
   })
 }

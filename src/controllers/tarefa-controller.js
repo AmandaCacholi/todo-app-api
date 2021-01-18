@@ -4,6 +4,7 @@ module.exports = (app) => {
   })
 
   app.post('/tarefa', (req, res) => {
+    console.log(req.body.nome)
     res.send('Rota POST de tarefa ativada: tarefa adicionada ao banco de dados');
   })
 }
