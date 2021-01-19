@@ -1,17 +1,20 @@
 const express = require('express')
+const bodyParser = require('body-parser')
 
 const usuariosController = require('./controllers/usuario-controller')
 const tarefasController = require('./controllers/tarefa-controller')
-const bodyParser = require('body-parser')
+const Usuario = require('./models/usuario')
+const Tarefa = require('./models/tarefa')
+const bd = require('./infra/bd')
 
 const app = express()
 const port = 3001
 
 app.use(bodyParser.json())
 
-usuariosController(app)
-tarefasController(app)
+usuariosController(app, bd)
+tarefasController(app, bd)
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`Listening at http://localhost:${port}`)
 })

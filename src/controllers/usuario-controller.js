@@ -1,10 +1,14 @@
-module.exports = (app) => {
+const Usuario = require('../models/usuario')
+
+module.exports = (app, bd) => {
   app.get('/usuario', (req, res) => {
     res.send('Rota ativada com GET e recurso usuario: valores de usuario devem ser retornados')
   })
 
   app.post('/usuario', (req, res) => {
-    console.log(req.body.curso)
-    res.send('Rota POST de usuario ativada: usuario adicionado ao banco de dados')
+    const usr = new Usuario(req.body.nome, req.body.email, req.body.senha)
+    bd.usuarios.push(usr)
+    console.log(usr)
+    res.send(usr)
   })
 }
