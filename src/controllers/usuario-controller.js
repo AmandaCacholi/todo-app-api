@@ -2,7 +2,18 @@ const Usuario = require('../models/usuario')
 
 module.exports = (app, bd) => {
   app.get('/usuario', (req, res) => {
-    res.send('Rota ativada com GET e recurso usuario: valores de usuario devem ser retornados')
+    res.send(bd.usuarios)
+  })
+
+  app.get('/usuario/:email', (req, res) => {
+    const results = []
+    for (let i = 0; i < bd.usuarios.length; i++){
+      if(bd.usuarios[i].email==req.params.email)
+      {
+        results.push(bd.usuarios[i])
+      }
+    }
+    res.send(results)
   })
 
   app.post('/usuario', (req, res) => {
