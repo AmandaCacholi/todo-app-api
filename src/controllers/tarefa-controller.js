@@ -1,9 +1,18 @@
 const Tarefa = require('../models/tarefa')
 
 module.exports = (app, bd) => {
+
   app.get('/tarefa', (req, res) => {
-    res.send(bd.tarefas);
-  })
+    bd.all("SELECT * FROM TAREFAS;", ( error, rows) => {
+      if (error){ 
+        throw new Error('Erro na consulta')}
+      else res.send(rows)
+    })
+  });
+
+  // app.get('/tarefa', (req, res) => {
+  //   res.send(bd.tarefas);
+  // })
 
   app.get('/tarefa/:titulo', (req, res) => {
     const results = []

@@ -5,7 +5,7 @@ const usuariosController = require('./controllers/usuario-controller')
 const tarefasController = require('./controllers/tarefa-controller')
 const Usuario = require('./models/usuario')
 const Tarefa = require('./models/tarefa')
-const bd = require('./infra/bd')
+const bd = require('./infra/sqlite-db')
 
 const app = express()
 const port = 3001
