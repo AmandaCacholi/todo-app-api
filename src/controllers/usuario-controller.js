@@ -8,7 +8,7 @@ module.exports = (app, bd) => {
 
 		usuariosDao.listaUsuarios()
 			.then((usuarios) => {
-				res.send(usuarios);
+				res.status(200).send(usuarios);
 			})
 			.catch((erro) => {
 				res.send(erro);
@@ -31,7 +31,7 @@ module.exports = (app, bd) => {
 
 		usuariosDao.insereUsuarios([req.body.nome, req.body.email, req.body.senha])
 			.then((usuario) => {
-				res.send(usuario)
+				res.status(200).send(usuario)
 			})
 			.catch((erro) => {
 				res.send(erro)
@@ -43,7 +43,7 @@ module.exports = (app, bd) => {
 
 		usuariosDao.deletaUsuarios(req.params.id)
 			.then((usuario) => {
-				res.send(usuario)
+				res.status(200).send(usuario)
 			})
 			.catch((erro) => {
 				res.send(erro)
@@ -54,7 +54,7 @@ module.exports = (app, bd) => {
 
 		usuariosDao.atualizaUsuarios([req.body.nome, req.body.email, req.body.senha, req.params.id])
 			.then((usuario) => {
-				res.send(usuario)
+				res.status(200).send(usuario)
 			})
 			.catch((erro) => {
 				res.send(erro)

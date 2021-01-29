@@ -7,7 +7,7 @@ module.exports = (app, bd) => {
 	app.get('/tarefa', (req, res) => {
 		tarefasDao.listaTrefas()
 			.then((tarefas) => {
-				res.send(tarefas)
+				res.status(200).send(tarefas)
 			})
 			.catch((erro) => {
 				res.send(erro)
@@ -29,7 +29,7 @@ module.exports = (app, bd) => {
 
 		tarefasDao.insereTarefas([req.body.titulo, req.body.descricao, req.body.status, req.body.datadecriacao, req.body.id_usuario])
 			.then((tarefa) => {
-				res.send(tarefa)
+				res.status(200).send(tarefa)
 			})
 			.catch((erro) => {
 				res.send(erro)
@@ -41,7 +41,7 @@ module.exports = (app, bd) => {
 
 		tarefasDao.deletaTarefas(req.params.id)
 			.then((tarefa) => {
-				res.send(tarefa)
+				res.status(200).send(tarefa)
 			})
 			.catch((erro) => {
 				res.send(erro)
@@ -52,7 +52,7 @@ module.exports = (app, bd) => {
 
 		tarefasDao.atualizaTarefas([req.body.titulo, req.body.descricao, req.body.status, req.body.datacriacao, req.body.id_usuario, req.params.id])
 			.then((tarefa) => {
-				res.send(tarefa)
+				res.status(200).send(tarefa)
 			})
 			.catch((erro) => {
 				res.send(erro)

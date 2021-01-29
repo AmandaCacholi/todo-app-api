@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const cors = require('cors')
 
 const usuariosController = require('./controllers/usuario-controller')
 const tarefasController = require('./controllers/tarefa-controller')
@@ -11,6 +12,7 @@ const app = express()
 const port = 3001
 
 app.use(bodyParser.json())
+app.use(cors())
 
 usuariosController(app, bd)
 tarefasController(app, bd)
