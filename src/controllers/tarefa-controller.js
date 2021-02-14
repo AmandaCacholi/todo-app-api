@@ -4,59 +4,54 @@ const tarefasDao = new TarefasDao(bd)
 
 module.exports = (app, bd) => {
 
-	app.get('/tarefa', (req, res) => {
-		tarefasDao.listaTrefas()
-			.then((tarefas) => {
-				res.status(200).send(tarefas)
-			})
-			.catch((erro) => {
-				res.send(erro)
-			})
+	app.get('/tarefa', async (req, res) => {
+		try{
+			const tarefassRetorno = await tarefasDao.listaTarefas();
+			res.status(200).send(tarefassRetorno);
+		}catch(erro){
+			res.send(erro);
+		}
 	});
 
-	// app.get('/tarefa/:titulo', (req, res) => {
-	//   const results = []
-	//   for (let i = 0; i < bd.tarefas.length; i++){
-	//     if(bd.tarefas[i].titulo==req.params.titulo)
-	//     {
-	//       results.push(bd.tarefas[i])
-	//     }
-	//   }
-	//   res.send(results)
-	// })
-
-	app.post('/tarefa', (req, res) => {
-
-		tarefasDao.insereTarefas([req.body.titulo, req.body.descricao, req.body.status, req.body.datadecriacao, req.body.id_usuario])
-			.then((tarefa) => {
-				res.status(200).send(tarefa)
-			})
-			.catch((erro) => {
-				res.send(erro)
-			})
-
+	app.get('/tarefa/:id', async (req, res) => 
+	{
+		try{
+			const tarefassRetorno = await tarefasDao.buscaUnicaTarefas(req.params.id);
+			res.status(200).send(tarefassRetorno);
+		}catch(erro){
+			res.send(erro);
+		}
 	});
 
-	app.delete('/tarefa/:id', (req, res) => {
+	app.post('/tarefa', async (req, res) => {
 
-		tarefasDao.deletaTarefas(req.params.id)
-			.then((tarefa) => {
-				res.status(200).send(tarefa)
-			})
-			.catch((erro) => {
-				res.send(erro)
-			})
+		try{
+			const tarefassRetorno = await tarefasDao.insereTarefas([req.body.titulo, req.body.descricao, req.body.status, req.body.dataCriacao, req.body.id_usuario]);
+			res.status(200).send(tarefassRetorno);
+		}catch(erro){
+			res.send(erro);
+		}
+	});
+
+	app.delete('/tarefa/:id', async (req, res) => {
+
+		try{
+			const tarefassRetorno = await tarefasDao.deletaTarefas(req.params.id);
+			res.status(200).send(tarefassRetorno);
+		}catch(erro){
+			res.send(erro);
+		}
 	})
 
-	app.put('/tarefa/:id', (req, res) => {
+	app.put('/tarefa/:id', async (req, res) => {
 
-		tarefasDao.atualizaTarefas([req.body.titulo, req.body.descricao, req.body.status, req.body.datacriacao, req.body.id_usuario, req.params.id])
-			.then((tarefa) => {
-				res.status(200).send(tarefa)
-			})
-			.catch((erro) => {
-				res.send(erro)
-			})
+		try{
+			const tarefassRetorno = await tarefasDao.atualizaTarefas([req.body.titulo, req.body.descricao, req.body.status, req.body.datacriacao, req.body.id_usuario, req.params.id]);
+			res.status(200).send(tarefassRetorno);
+		}catch(erro){
+			res.send(erro);
+		}
+
 	})
 
 }

@@ -4,60 +4,56 @@ const usuariosDao = new UsuariosDao(bd)
 
 module.exports = (app, bd) => {
 
-	app.get('/usuario', (req, res) => {
+	app.get('/usuario', async (req, res) => {
 
-		usuariosDao.listaUsuarios()
-			.then((usuarios) => {
-				res.status(200).send(usuarios);
-			})
-			.catch((erro) => {
-				res.send(erro);
-			})
+		try{
+			const usuariosRetorno = await usuariosDao.listaUsuarios();
+			res.status(200).send(usuariosRetorno);
+		}catch(erro){
+			res.send(erro);
+		}
 	});
 
-	// app.get('/usuario/:email', (req, res) => {
-	//   const results = []
-	//   for (let i = 0; i < bd.usuarios.length; i++)
-	//   {
-	//     if(bd.usuarios[i].email==req.params.email)
-	//     {
-	//       results.push(bd.usuarios[i])
-	//     }
-	//   }
-	//   res.send(results)
-	// })
+	app.get('/usuario/:id', async (req, res) => 
+	{
+		try{
+			const usuariosRetorno = await usuariosDao.buscaUnicaUsuarios(req.params.id);
+			res.status(200).send(usuariosRetorno);
+		}catch(erro){
+			res.send(erro);
+		}
+	});
 
-	app.post('/usuario', (req, res) => {
+	app.post('/usuario', async (req, res) => {
 
-		usuariosDao.insereUsuarios([req.body.nome, req.body.email, req.body.senha])
-			.then((usuario) => {
-				res.status(200).send(usuario)
-			})
-			.catch((erro) => {
-				res.send(erro)
-			})
+		try{
+			const usuariosRetorno = await usuariosDao.insereUsuarios([req.body.nome, req.body.email, req.body.senha]);
+			res.status(200).send(usuariosRetorno);
+		}catch(erro){
+			res.send(erro);
+		}
 
 	});
 
-	app.delete('/usuario/:id', (req, res) => {
+	app.delete('/usuario/:id', async (req, res) => {
 
-		usuariosDao.deletaUsuarios(req.params.id)
-			.then((usuario) => {
-				res.status(200).send(usuario)
-			})
-			.catch((erro) => {
-				res.send(erro)
-			})
+		try{
+			const usuariosRetorno = await usuariosDao.deletaUsuarios(req.params.id);
+			res.status(200).send(usuariosRetorno);
+		}catch(erro){
+			res.send(erro);
+		}
+
 	})
 
-	app.put('/usuario/:id', (req, res) => {
+	app.put('/usuario/:id', async (req, res) => {
 
-		usuariosDao.atualizaUsuarios([req.body.nome, req.body.email, req.body.senha, req.params.id])
-			.then((usuario) => {
-				res.status(200).send(usuario)
-			})
-			.catch((erro) => {
-				res.send(erro)
-			})
+		try{
+			const usuariosRetorno = await usuariosDao.atualizaUsuarios([req.body.nome, req.body.email, req.body.senha, req.params.id]);
+			res.status(200).send(usuariosRetorno);
+		}catch(erro){
+			res.send(erro);
+		}
+
 	})
 }

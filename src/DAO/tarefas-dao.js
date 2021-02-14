@@ -3,7 +3,7 @@ module.exports = class TarefasDao {
 		this.bd = bd;
 	}
 
-	listaTrefas() {
+	listaTarefas() {
 		return new Promise((resolve, reject) => {
 			this.bd.all("SELECT * FROM TAREFAS;", (error, rows) => {
 				if (error) {
@@ -13,6 +13,19 @@ module.exports = class TarefasDao {
 			})
 		})
 	}
+
+	buscaUnicaTarefas(parametro)
+    {
+        return new Promise((resolve, reject)=>
+        {
+            this.bd.get("SELECT * FROM TAREFAS WHERE id = ?", parametro,
+            (error, rows)=>
+            {
+                if(error) reject('erro ao buscar tarefa');
+                else resolve(rows);
+            })
+        })
+    }
 
 	insereTarefas(values) {
 
