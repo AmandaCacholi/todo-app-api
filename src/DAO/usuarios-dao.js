@@ -17,6 +17,19 @@ module.exports = class UsuariosDao {
 
 	}
 
+	buscaUnicaUsuarios(parametro)
+    {
+        return new Promise((resolve, reject)=>
+        {
+            this.bd.get("SELECT * FROM USUARIOS WHERE id = ?", parametro,
+            (error, rows)=>
+            {
+                if(error) reject('erro ao buscar usuario');
+                else resolve(rows);
+            })
+        })
+    }
+
 	insereUsuarios(values) {
 
 		return new Promise((resolve, reject) => {
