@@ -7,7 +7,7 @@ const tarefasController = require('./controllers/tarefa-controller')
 const bd = require('./infra/sqlite-db')
 
 const app = express()
-const port = 3001
+const port = process.env.PORT
 
 app.use(bodyParser.json())
 app.use(cors())
