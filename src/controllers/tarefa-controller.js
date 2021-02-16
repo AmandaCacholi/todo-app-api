@@ -27,7 +27,7 @@ module.exports = (app, bd) => {
 
 		try{
 			const tarefassRetorno = await tarefasDao.insereTarefas([req.body.titulo, req.body.descricao, req.body.status, req.body.dataCriacao, req.body.id_usuario]);
-			res.status(200).send(tarefassRetorno);
+			res.status(201).send(tarefassRetorno);
 		}catch(erro){
 			res.send(erro);
 		}

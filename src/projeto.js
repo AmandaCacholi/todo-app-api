@@ -17,4 +17,4 @@ tarefasController(app, bd)
 
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`)
-})
+}) 

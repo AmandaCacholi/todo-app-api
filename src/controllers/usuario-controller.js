@@ -28,7 +28,7 @@ module.exports = (app, bd) => {
 
 		try{
 			const usuariosRetorno = await usuariosDao.insereUsuarios([req.body.nome, req.body.email, req.body.senha]);
-			res.status(200).send(usuariosRetorno);
+			res.status(201).send(usuariosRetorno);
 		}catch(erro){
 			res.send(erro);
 		}
