@@ -4,8 +4,8 @@ API desenvolvida para aplicativo de genrenciamento de tempo.
 
 ## Instalando as dependências e iniciando o app
 
-Para instalar as depedências basta dar o comando **npm install**.
-Para iniciar o app use o comando **npm start**.
+- Para instalar as depedências basta dar o comando **npm install**.
+- Para iniciar o app use o comando **npm start**.
 
 ## As rotas possíveis são:
 
