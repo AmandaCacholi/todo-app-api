@@ -22,3 +22,7 @@ API desenvolvida para aplicativo de genrenciamento de tempo.
 - **POST**: Adiciona uma nova tarefa ao banco de dados;
 - **DELETE**: Deleta uma tarefa usando o id como parâmetro;
 - **PUT**: Edita as informações de uma tarefa usando o id como parâmetro.
+
+## Link para o deploy:
+
+https://todo-api-resilia.herokuapp.com/
