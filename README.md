@@ -10,15 +10,15 @@ API desenvolvida para aplicativo de genrenciamento de tempo.
 ## As rotas possíveis são:
 
 ### Para usuários
-- GET: Lista todos os usuários presentes no banco de dados;
-- GET com id como parâmetro: Busca um usuário específico pelo seu id;
-- POST: Adiciona um novo usuário ao banco de dados;
-- DELETE: Deleta um usuário usando o id como parâmetro;
-- PUT: Edita as informações de um usuário usando o id como parâmetro.
+- **GET**: Lista todos os usuários presentes no banco de dados;
+- **GET com id como parâmetro**: Busca um usuário específico pelo seu id;
+- **POST**: Adiciona um novo usuário ao banco de dados;
+- **DELETE**: Deleta um usuário usando o id como parâmetro;
+- **PUT**: Edita as informações de um usuário usando o id como parâmetro.
 
 ### Para tarefas
-- GET: Lista todas as tarefas presentes no banco de dados;
-- GET com id como parâmetro: Busca uma tarefa específica pelo seu id;
-- POST: Adiciona uma nova tarefa ao banco de dados;
-- DELETE: Deleta uma tarefa usando o id como parâmetro;
-- PUT: Edita as informações de uma tarefa usando o id como parâmetro.
+- **GET**: Lista todas as tarefas presentes no banco de dados;
+- **GET com id como parâmetro**: Busca uma tarefa específica pelo seu id;
+- **POST**: Adiciona uma nova tarefa ao banco de dados;
+- **DELETE**: Deleta uma tarefa usando o id como parâmetro;
+- **PUT**: Edita as informações de uma tarefa usando o id como parâmetro.
